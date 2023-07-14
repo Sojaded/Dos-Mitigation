@@ -22,4 +22,6 @@ We would like to acknowledge the following resources and individuals for their c
 
 ## Author
 This simulation was created and developed by Kaweru Kelvin. You can contact the author at [kelvin.kaweru@strathmore.edu] for any inquiries or feedback regarding this project.
-Note: The simulation in this repository is for educational and demonstration purposes only. It does not reflect a production-ready environment and should not be used in a live network without proper evaluation and customization.
+
+## Note
+The simulation in this repository is for educational and demonstration purposes only. It does not reflect a production-ready environment and should not be used in a live network without proper evaluation and customization.
