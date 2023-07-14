@@ -1,0 +1,82 @@
+all Router Configs
+en
+config t
+int g0/0
+ip add 192.168.56.11 255.255.255.0
+no shutdown
+int g0/0
+ip add 172.25.10.254 255.255.255.0
+no shutdown
+int g0/1
+ip add 192.168.56.100 255.255.255.0
+no shutdown
+int g0/0
+ip add 192.168.109.1 255.255.255.0
+no shutdown
+int g0/2
+ip add 192.168.56.11 255.255.255.0
+no shutdown
+int g0/1
+ip add 192.168.56.100 255.255.255.0
+no shutdown
+
+all Switch Configs  
+int f0/0
+ip add 192.168.56.1 255.255.255.0
+no shutdown
+int f0/1
+ip add 192.168.56.1 255.255.255.0
+no shutdown
+int f0/3
+ip add 192.168.109.1 255.255.255.0
+no shutdown
+int f0/0
+ip add 192.168.56.11 255.255.255.0
+no shutdown
+F5 Load balancer configs
+enable
+Configure terminal
+ltm virtual <virtual_server_name>
+destination <ip_add>:<port>
+pool <pool_name>
+profiles add {tcp {} http {} }
+IPS CONFIG STEPS
+Enable IPS:
+
+Access the IPS device's configuration interface.
+Enable the IPS functionality if it's not already enabled.
+Configure DoS Attack Protection:
+
+Identify the specific DoS attack types you want to protect against.
+Configure the IPS device to detect and mitigate those attack types.
+Enable or adjust the thresholds and parameters based on your environment's requirements and sensitivity.
+Implement Rate Limiting:
+
+Define rate limits to restrict the number of connections or packets per second from a particular source IP address.
+Configure rate limiting rules to protect critical services or network segments.
+Consider setting different rate limits for different types of traffic, such as ICMP, UDP, or TCP.
+Enable SYN Flood Protection:
+
+Enable SYN flood protection on the IPS device.
+Set appropriate thresholds for SYN packets per second, half-open connections, and maximum concurrent connections.
+Adjust the values based on your network's capacity and traffic patterns.
+Implement Traffic Shaping:
+
+Enable traffic shaping or rate limiting mechanisms on the IPS device to prioritize legitimate traffic and mitigate DoS attacks.
+Configure policies to shape traffic based on source, destination, or specific traffic characteristics.
+Assign higher priority to critical services and lower priority to non-essential traffic.
+Enable Anomaly Detection:
+
+Enable anomaly detection features on the IPS device to identify unusual or abnormal traffic patterns.
+Configure thresholds and parameters to trigger alerts or automatically take action when anomalies are detected.
+Continuously monitor and adjust the anomaly detection settings to adapt to changing network conditions.
+Implement Blacklisting/Whitelisting:
+
+Configure blacklists and whitelists on the IPS device.
+Add known malicious IP addresses or ranges to the blacklist to block traffic from those sources.
+Add trusted IP addresses or ranges to the whitelist to ensure uninterrupted access to legitimate traffic.
+Enable DoS Attack Logging and Reporting:
+
+Enable logging of DoS attack events on the IPS device.
+Set up real-time alerts or notifications for critical attack events.
+Generate regular reports to analyze attack trends, patterns, and effectiveness of the IPS mitigation measures.
